@@ -1,0 +1,72 @@
+
+/*  IMPORTANDO FONTES   */
+
+@font-face {
+    font-family: VAL;
+    src: url(fonts/VAL.otf);
+};
+
+@font-face {
+    font-family: cabo rounded regular;
+    src: url(fonts/cabo-rounded-regular.otf);
+}
+
+/*  ESTILO GERAL    */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.c-interface {
+    max-width: 900px;
+    margin: auto;
+}
+
+/*  ESTILO HEADER   */
+
+header {
+    padding: 30px 5%;
+}
+
+header > .c-interface {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+header a {
+    text-decoration: none;
+    color: #111826;
+    font-family: 'cabo rounded regular';
+    font-size: 1.3rem;
+    display: inline-block;
+    transition: .3s;
+}
+
+header a:hover {
+    transform: scale(1.1);
+    color: #989ca3;
+}
+
+header .c-interface .logo a {
+    text-decoration: none;
+    font-family: 'VAL';
+    font-size: 200%;
+    transition: .7s;
+    color: #FF6D82;
+}
+
+header .c-interface .logo a:hover {
+    color: #ff6d83be;
+}
+
+header .c-interface .c-menu ul {
+    list-style-type: none;
+}
+
+header nav ul li {
+    display: inline-block;
+    padding: 10px;
+}

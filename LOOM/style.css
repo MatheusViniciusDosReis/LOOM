@@ -24,21 +24,38 @@
     margin: auto;
 }
 
+body {
+    text-align: center  ;
+    
+    --selected-color: #0D1A10;
+    background-color: var(--selected-color);
+}
+
 /*  ESTILO HEADER   */
 
 header {
     padding: 30px 5%;
+    background-color: transparent;
 }
 
 header > .c-interface {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
+}
+
+header .c-interface .c-menu ul {
+    list-style-type: none;
+}
+
+header nav ul li {
+    display: inline-block;
+    padding: 10px;
 }
 
 header a {
     text-decoration: none;
-    color: #111826;
+    color: #FF6D82;
     font-family: 'cabo rounded regular';
     font-size: 1.3rem;
     display: inline-block;
@@ -47,7 +64,7 @@ header a {
 
 header a:hover {
     transform: scale(1.1);
-    color: #989ca3;
+    color: rgba(233, 38, 67, 0.73);
 }
 
 header .c-interface .logo a {
@@ -59,14 +76,69 @@ header .c-interface .logo a {
 }
 
 header .c-interface .logo a:hover {
-    color: #ff6d83be;
+    color: rgba(233, 38, 67, 0.73);
 }
 
-header .c-interface .c-menu ul {
+
+/*  VINCULANDO O IMPUT RADIO COM AS IMAGENS */
+.slide-controller:nth-child(1):checked ~ .slider .slide-list {--selected-item: 0;} /*   IMPUT1 COM A PRIMEIRA IMAGEM    */
+.slide-controller:nth-child(2):checked ~ .slider .slide-list {--selected-item: 1;} /*   IMPUT2 COM A SEGUNDA IMAGEM     */
+.slide-controller:nth-child(3):checked ~ .slider .slide-list {--selected-item: 2;} /*   IMPUT3 COM A TERCEIRA IMAGEM    */
+
+/*  BACKGROUND  */
+
+.slide-controller:nth-child(1):checked ~ body {--selected-color: #0D1A10;}
+.slide-controller:nth-child(2):checked ~ body {--selected-color: #3A515F;}
+.slide-controller:nth-child(3):checked ~ body {--selected-color: #88CEDA;}
+
+/*  ESTILO DO INPUT RADIO   */
+main input[type='radio'] {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    appearance: none;
+    background-color: #FF6D82;
+    border-radius: 50%;
+    transition: .4s;
+}
+
+main input[type='radio']:hover {
+    background-color: rgb(233, 38, 67);
+    box-shadow: 0px 0px 9px rgb(233, 38, 67);
+
+}
+
+main input[type='radio']:checked {
+    background-color: rgb(233, 38, 67);
+}
+
+/*  ESTILO DO SLIDE */
+
+.slider {
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.slide-list {
     list-style-type: none;
+    display: flex;
+
+    --total-itens: 3;
+    width: calc(var(--total-itens) * 100%);
+
+    
+    position: relative;
+    --selected-item: 0;
+    left: calc(var(--selected-item) * -100%);
+
+    transition: left .4s;
 }
 
-header nav ul li {
+.slider .slide-list li {
     display: inline-block;
-    padding: 10px;
+    width: 100%;
+}
+
+.slider .slide-list li img {
+    border-radius: 50%;
 }
